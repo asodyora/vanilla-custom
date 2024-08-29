@@ -2,7 +2,7 @@ name: Custom Vanilla Desktop # Replace this name with your image name
 id: vanilla-custom # Replace this ID with your image ID
 stages:
 - id: vanilla-custom
-  base: ghcr.io/vanilla-os/desktop:main # Optionally, Replace this image URL with a different one i.e. nvidia:main, etc
+  base: ghcr.io/vanilla-os/nvidia:main # Optionally, Replace this image URL with a different one i.e. nvidia:main, etc
   singlelayer: false
   labels:
     maintainer: self-maintained # Optionally, Replace this with your name
@@ -23,13 +23,7 @@ stages:
 
   # Put your custom actions behind this comment
 
-  - name: example-packages # Sample module using the built-in Apt module to install packages
-    type: apt
-    source:
-      packages:
-      - fastfetch
-
-  - name: install-tailscale # Sample module demonstrating the Shell module with custom commands
+  - name: install-tailscale # Installs tailscale
     type: shell
     commands:
     - mkdir -p --mode=0755 /usr/share/keyrings
